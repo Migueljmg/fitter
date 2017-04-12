@@ -1,0 +1,5 @@
+O programa faz o nº de gráficos que quisermos desde que providenciemos os dados correspondentes,
+segundo o ficheiro de parâmetros "param.txt"
+
+Exemplo: (fazer 2 gráficos simultaneos)
+./main.exe param.txt dadosA.txt dadosB.txt
