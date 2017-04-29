@@ -72,7 +72,7 @@ int main(int argc, char **argv)
   //c1->SetGrid();
   c1->GetFrame()->SetFillColor(21);
   c1->GetFrame()->SetBorderSize(12);
-  c1->SetLogy();
+  //c1->SetLogy();
 
 
   
@@ -160,10 +160,10 @@ int main(int argc, char **argv)
 
   }
 
-  /*
+  
   else if (escolha == "histograma")
   {
-    TH1F* hist=Decisao->Histograma();
+    TH1F* hist=Decisao[0]->Histograma();
     hist->Draw("EHISTSAME");
     //hist->Draw("BE1");
     c1->Update();
@@ -174,13 +174,18 @@ int main(int argc, char **argv)
   }
   else if (escolha == "fit")
   {
-    TGraphErrors* gr = Decisao->Grafico(1);
+    vector<double> dim = Decisao[0]->Return_dims();
+
+    TGraphErrors* gr = Decisao[0]->Grafico(1);
     gStyle->SetOptFit();
-    for(int i=0; i<=19; i++)
+    //for(int i=0; i<=19; i++)
       //cout << "erro de x:" << gr->GetErrorX(i) << " erro de y:" << gr->GetErrorY(i) << endl;
-    Decisao->Ajuste(gr);
-    gr->Draw();
+    Decisao[0]->Ajuste(gr);
+    gr->Draw("AP");
+    gr->SetMinimum(dim[2]);
+    gr->SetMaximum(dim[3]);
     mg->Add(gr);
+
 
     gPad->Update();
 
@@ -193,9 +198,9 @@ int main(int argc, char **argv)
   }
 
 
-  */
+  
 
-
+  /*
 
   if (escolha !="histograma") {
 
@@ -213,6 +218,7 @@ int main(int argc, char **argv)
     }
     c1->Update();
   }
+  */
 
   c1->Modified();
   c1->Print("plot.pdf");
