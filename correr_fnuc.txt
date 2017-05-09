@@ -10,3 +10,7 @@ Espectros:
 	Espectro s/ inclinacao (patamar maior): ./main.exe param_spec2_med.txt 1fn05.txt
 
 
+Fit da calibraçao:
+
+	Por calibOpt.C na Makefile, alterar nome PDF na main e correr: ./main.exe calibparam.txt dados_calib.txt
+
