@@ -72,7 +72,6 @@ int main(int argc, char **argv)
   //c1->SetGrid();
   c1->GetFrame()->SetFillColor(21);
   c1->GetFrame()->SetBorderSize(12);
-  //c1->SetLogy();
 
 
   
@@ -206,7 +205,9 @@ int main(int argc, char **argv)
 
 
     //mg->Draw("PE"); // para plot polar
-    mg->Draw("AC"); //para plot normal
+    c1->SetLogy();
+    c1->Update();
+    mg->Draw("AC*"); //para plot normal
 
     if(escolha!="polar" && escolha!="polar_area"){
       vector<double> dim = Decisao[0]->Return_dims();
@@ -221,7 +222,7 @@ int main(int argc, char **argv)
   
 
   c1->Modified();
-  c1->Print("spec1reg3.pdf");
+  c1->Print("e-e+_neutrinos_200pts.pdf");
   getchar();
 
   theApp.Terminate();

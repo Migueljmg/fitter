@@ -14,7 +14,7 @@ LDFLAGS := `root-config --glibs`
 
 
 
-SRC3= main.C Opt_spec2.C
+SRC3= main.C Opt.C
 OBJ3= $(SRC3:.C=.o)
 EXE3= main.exe
 
