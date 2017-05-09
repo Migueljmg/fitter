@@ -181,7 +181,7 @@ int main(int argc, char **argv)
     //for(int i=0; i<=19; i++)
       //cout << "erro de x:" << gr->GetErrorX(i) << " erro de y:" << gr->GetErrorY(i) << endl;
     Decisao[0]->Ajuste(gr);
-    gr->Draw("APX");//esta a desenhar sem barras de erro!!!!
+    gr->Draw("AP");
     gr->SetMinimum(dim[2]);
     gr->SetMaximum(dim[3]);
     mg->Add(gr);
@@ -190,23 +190,23 @@ int main(int argc, char **argv)
     gPad->Update();
 
     TPaveStats *stats1 = (TPaveStats*)gr->GetListOfFunctions()->FindObject("stats");
-    stats1->SetX1NDC(.7); 
-    stats1->SetX2NDC(.95);
-    stats1->SetY1NDC(0.9);
-    stats1->SetY2NDC(0.5);
+    stats1->SetX1NDC(.6); 
+    stats1->SetX2NDC(.85);
+    stats1->SetY1NDC(0.7);
+    stats1->SetY2NDC(0.4);
 
   }
 
 
   
 
-  
+  /*
 
-  if (escolha == "grafico") {
+  if (escolha !="histograma") {
 
 
     //mg->Draw("PE"); // para plot polar
-    mg->Draw("AC"); //para plot normal
+    mg->Draw("AC*"); //para plot normal
 
     if(escolha!="polar" && escolha!="polar_area"){
       vector<double> dim = Decisao[0]->Return_dims();
@@ -218,10 +218,10 @@ int main(int argc, char **argv)
     }
     c1->Update();
   }
-  
+  */
 
   c1->Modified();
-  c1->Print("spec1reg3.pdf");
+  c1->Print("plot.pdf");
   getchar();
 
   theApp.Terminate();

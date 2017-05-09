@@ -1,0 +1,9 @@
+opcao:fit
+titulo:Calibracao;
+func:[0]*x + [1]
+xmin:0
+xmax:1000
+ymin:0
+ymax:2
+
+

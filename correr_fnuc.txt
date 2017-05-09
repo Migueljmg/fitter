@@ -1,0 +1,12 @@
+
+Alterar sempre no main.C o nome do PDF onde quero guardar e no Opt_spec1.C (calibracao) e Opt_spec2.C (espetro s/inclinacao)
+descomentar a regiao que quero fitar. ALTERAR ainda a MAKEFILE se quiser usar ou o Opt_spec1.C ou o Opt_spec2.C
+
+Espectros:
+
+	Da calibraçao: ./main.exe param_spec1.txt 1fn04.txt
+
+	Espectro s/ inclinacao: ./main.exe param_spec2.txt 1fn05.txt
+	Espectro s/ inclinacao (patamar maior): ./main.exe param_spec2_med.txt 1fn05.txt
+
+

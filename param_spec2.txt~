@@ -1,8 +1,7 @@
-opcao:fit
+opcao:grafico
 titulo:secoes eficazes;
 func:([0]*x + [1])*(x<[7] && x>[6])  + ([2]*x + ([0]-[2])*[7] + [1] )*(x<[8] && x>[7]) + ([4]*x + ([2]-[4])*[8] + (([0]-[2])*[7] + [1]) )*(x<[9] && x>[8])
 xmin:0
 xmax:1100
 ymin:0
-ymax:3000
-
+ymax:4000
