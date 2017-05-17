@@ -118,26 +118,9 @@ void Opt::Ajuste(TGraphErrors* gr1)
 {
   cout << "Eu quero fazer um ajuste e jame deixam." << endl;
 
-  TF1 *f1 = new TF1("f1",func.c_str());//,470,640);//func.c_str());
+  TF1 *f1 = new TF1("f1",func.c_str());
   f1->SetLineColor(kBlue);
   f1->SetLineWidth(2);
-
-  //f1->SetParameters(-0.001,-0.5);
-  //f1->SetParameters(1,0.001,8000,118.,10);
-  //f1->SetParLimits(4,0,100000);
-  //f1->SetParLimits(3,95.,110.);
-  //gr1->Fit("f1","MF","",110.,121.);
-
-  /*
-  f1->SetParLimits(14,271,278); //    268,278
-  f1->SetParLimits(15,285,290);//280
-  f1->SetParLimits(16,449,452);//450  445,455
-  f1->SetParLimits(17,472,475);//470  465,475
-  f1->SetParLimits(18,657,660);//655
-  f1->SetParLimits(19,667,673);//671    669
-  f1->SetParLimits(20,748,755);//750
-  f1->SetParLimits(21,770,775);//770
-  */
 
 
 
@@ -145,7 +128,7 @@ void Opt::Ajuste(TGraphErrors* gr1)
   //////REG0
   f1->SetParLimits(6,200,210); //    
   f1->SetParLimits(7,271,278); //    268,278
-  f1->SetParLimits(8,285,290);//280
+  f1->SetParLimits(8,283,290);//280
   f1->SetParLimits(9,449,452);//450  445,455
 
   gr1->Fit("f1","R","",200,449);
@@ -196,8 +179,8 @@ void Opt::Ajuste(TGraphErrors* gr1)
   gr1->SetMarkerStyle(7);
   gr1->SetLineColor(kBlack);
 
-  cout << gr1->GetErrorY(0) << " " << gr1->GetErrorY(1) << " " << gr1->GetErrorY(2) << " " << gr1->GetErrorY(3) << endl;
-  cout << gr1->GetErrorX(0) << " " << gr1->GetErrorX(1) << " " << gr1->GetErrorX(2) << " " << gr1->GetErrorX(3) << endl;
+  //cout << gr1->GetErrorY(0) << " " << gr1->GetErrorY(1) << " " << gr1->GetErrorY(2) << " " << gr1->GetErrorY(3) << endl;
+  //cout << gr1->GetErrorX(0) << " " << gr1->GetErrorX(1) << " " << gr1->GetErrorX(2) << " " << gr1->GetErrorX(3) << endl;
 
  
  

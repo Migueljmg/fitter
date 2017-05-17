@@ -1,0 +1,7 @@
+opcao:fit
+titulo:secoes eficazes;
+func:([0]*x + [1])*(x<[2] && x>[3]) 
+xmin:0
+xmax:1100
+ymin:0
+ymax:4000

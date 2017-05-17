@@ -178,12 +178,18 @@ int main(int argc, char **argv)
 
     TGraphErrors* gr = Decisao[0]->Grafico(1);
     gStyle->SetOptFit();
-    //for(int i=0; i<=19; i++)
-      //cout << "erro de x:" << gr->GetErrorX(i) << " erro de y:" << gr->GetErrorY(i) << endl;
+    gr->GetXaxis()->SetTitle("Canal");
+    gr->GetYaxis()->SetTitle("Energia(MeV)");
+    gr->GetYaxis()->SetTitleOffset(1.2);
+
     Decisao[0]->Ajuste(gr);
     gr->Draw("AP");
     gr->SetMinimum(dim[2]);
     gr->SetMaximum(dim[3]);
+
+    const char* c_title = title[0].c_str();
+    gr->SetTitle(c_title);
+
     mg->Add(gr);
 
 
@@ -221,7 +227,7 @@ int main(int argc, char **argv)
   */
 
   c1->Modified();
-  c1->Print("plot.pdf");
+  c1->Print("calib.pdf");
   getchar();
 
   theApp.Terminate();

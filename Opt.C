@@ -166,7 +166,7 @@ TGraphErrors* Opt::Grafico(int color)
   gr1->SetName("gr1");
   gr1->SetTitle("graph 1");
   gr1->SetMarkerStyle(6);
-  gr1->SetMarkerColor(kBlack);
+  gr1->SetMarkerColor(color);
   gr1->SetLineWidth(3);
 
   gr1->SetLineColor(color);

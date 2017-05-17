@@ -1,0 +1,2 @@
+Vou ver os canais correspondentes aos extremos do patamar e para todos os que 
+estão entre esses calculo a média das contagens

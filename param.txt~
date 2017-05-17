@@ -3,5 +3,5 @@ titulo:secoes eficazes;
 func:
 xmin:0
 xmax:200
-ymin:0.01
-ymax:100000
+ymin:10
+ymax:1000000

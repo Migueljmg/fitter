@@ -32,11 +32,12 @@ int main(int argc, char **argv)
 
 
   //Nr de ficheiros de dados que se pretende plotar 
-  const int N = 1;
+  const int N = 2;
 
   //Para por aqui os titulos que quisermos dar
   string title[N];
-  title[0]=".";
+  title[0]="";
+  title[1]="";
 
   if (argc != N+2)
   {
@@ -102,7 +103,7 @@ int main(int argc, char **argv)
 
       TGraphErrors* gr;
       if(i!=3){
-	gr = Decisao[i]->Grafico(i+2);//mando a cor como argumento
+	gr = Decisao[i]->Grafico(i+1);//mando a cor como argumento
       }else{
 	gr = Decisao[i]->Grafico(12);
       }
@@ -115,10 +116,8 @@ int main(int argc, char **argv)
       //const char* c_title = title.c_str();
 
 
-
       const char* c_title = title[i].c_str();
       gr->SetTitle(c_title);
-
 
       mg->Add(gr);
 
@@ -179,16 +178,12 @@ int main(int argc, char **argv)
 
     TGraphErrors* gr = Decisao[0]->Grafico(1);
     gStyle->SetOptFit();
-
-    gr->GetXaxis()->SetTitle("Canal");
-    gr->GetYaxis()->SetTitle("Contagens");
-    gr->GetYaxis()->SetTitleOffset(1.2);
-
+    //for(int i=0; i<=19; i++)
+      //cout << "erro de x:" << gr->GetErrorX(i) << " erro de y:" << gr->GetErrorY(i) << endl;
     Decisao[0]->Ajuste(gr);
     gr->Draw("APX");//esta a desenhar sem barras de erro!!!!
     gr->SetMinimum(dim[2]);
     gr->SetMaximum(dim[3]);
-    gr->SetTitle("");
     mg->Add(gr);
 
 
@@ -199,22 +194,6 @@ int main(int argc, char **argv)
     stats1->SetX2NDC(.95);
     stats1->SetY1NDC(0.9);
     stats1->SetY2NDC(0.5);
-
-    /*
-    TList *listOfLines = stats1->GetListOfLines();
-
-    // Remove the RMS line
-   TText *tconst = stats1->GetLine(1);
-   listOfLines->Remove(tconst);
-
-
-    TLatex *myt = new TLatex(0,0,"Test = 10");
-    myt->SetTextFont(42);
-    myt->SetTextSize(0.04);
-    myt->SetTextColor(kRed);
-    listOfLines->Add(myt);
-    */
-
 
   }
 
@@ -227,9 +206,9 @@ int main(int argc, char **argv)
 
 
     //mg->Draw("PE"); // para plot polar
-    c1->SetLogy();
+    //c1->SetLogy();
     c1->Update();
-    mg->Draw("AC*"); //para plot normal
+    mg->Draw("AP"); //para plot normal
 
     if(escolha!="polar" && escolha!="polar_area"){
       vector<double> dim = Decisao[0]->Return_dims();
@@ -244,7 +223,7 @@ int main(int argc, char **argv)
   
 
   c1->Modified();
-  c1->Print("fitreg3.pdf");
+  c1->Print("plot.pdf");
   getchar();
 
   theApp.Terminate();

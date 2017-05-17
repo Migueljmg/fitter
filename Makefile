@@ -14,7 +14,12 @@ LDFLAGS := `root-config --glibs`
 
 
 
-SRC3= main.C Opt.C
+SRC4= mainmerge.C Opt.C
+OBJ4= $(SRC4:.C=.o)
+EXE4= mainmerge.exe
+
+
+SRC3= main.C Opt_spec1.C
 OBJ3= $(SRC3:.C=.o)
 EXE3= main.exe
 
@@ -25,7 +30,7 @@ EXE2= calibmain.exe
 
 
 ##Routines
-all: main calibmain 
+all: main calibmain mainmerge 
 
 ## .o generator
 %.o:%.C 
@@ -41,7 +46,9 @@ calibmain: $(OBJ2)
 	$(CC) -o $(EXE2) $(OBJ2) $(LDFLAGS) 
 	@echo Hard Drive copied, sent and deleted. Shutting down...
 
-
+mainmerge: $(OBJ4)
+	$(CC) -o $(EXE4) $(OBJ4) $(LDFLAGS) 
+	@echo Hard Drive copied, sent and deleted. Shutting down...
 
 clean:
 	rm -rf *~ *.o $(EXE2) $(EXE3) $(EXE4)

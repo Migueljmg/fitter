@@ -140,10 +140,35 @@ void Opt::Ajuste(TGraphErrors* gr1)
   */
 
 
+  ///BACKGROUND DO Si/////////////////////////////////////////
+  //CORRER COM param_bg.txt e 1fn05_bg.txt
+  /*
+  f1->SetParLimits(2,240,250);//
+  f1->SetParLimits(3,390,395);//
+
+  gr1->Fit("f1","R","",240,390);
+  */
+
+  ///////////////////////////////////////////////////////////
+
+
+  /*
+  //////REG-1
+  f1->SetParLimits(6,210,220);//
+  f1->SetParLimits(7,280,288);//
+  f1->SetParLimits(8,290,300); //    
+  f1->SetParLimits(9,325,335); //   
+
+
+
+  gr1->Fit("f1","R","",210,325);
+  */
+
+
 
   /*
   //////REG0
-  f1->SetParLimits(6,290,290); //    
+  f1->SetParLimits(6,290,300); //    
   f1->SetParLimits(7,325,335); //   
   f1->SetParLimits(8,340,350);//
   f1->SetParLimits(9,390,395);//
@@ -177,11 +202,42 @@ void Opt::Ajuste(TGraphErrors* gr1)
   gr1->Fit("f1","R","",450,640);
   */
 
+
+  ///PATAMAR ANTES DO MEDIO//////////////////////////////////////
+
+  //////PATAMAR_PEQUENO 
+  /*
+
+  //Regiao do patamar todo (fit feio)
+  //Correr com param_spec2_med.txt//////////////////
+
+  f1->SetParLimits(6,427,430);//
+  f1->SetParLimits(7,445,450);//
+  f1->SetParLimits(8,485,495); //   
+  f1->SetParLimits(9,495,500);//
+  f1->SetParLimits(10,620,630);//
+
+  gr1->Fit("f1","R","",427,630);
+  */
+
+  //Regiao para determinar limite da esquerda (mais bonito)
+  //Correr com param_loucura.txt//////////////////
+  /*
+  f1->SetParLimits(6,340,350); // 
+  f1->SetParLimits(7,390,398); //   
+  f1->SetParLimits(8,398,410);//
+  f1->SetParLimits(9,427,430);//
+  f1->SetParLimits(10,445,450);//
+  f1->SetParLimits(11,485,495); //   
+
+  gr1->Fit("f1","R","",340,485);
+  */
+
   
   ////// PATAMAR MEDIO ///////////////////////////// 
   //Correr com param_spec2_med.txt//////////////////
 
-  
+  /*
   //////REG3
   f1->SetParLimits(6,510,520); //   
   f1->SetParLimits(7,620,640); //  
@@ -191,7 +247,7 @@ void Opt::Ajuste(TGraphErrors* gr1)
 
 
   gr1->Fit("f1","R","",510,720);
-  
+  */
   
 
   /*
